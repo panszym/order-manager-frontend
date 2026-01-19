@@ -1,13 +1,14 @@
-import { UserList } from "../../components/UserList";
-import useUser from "../../hooks/useUser";
+import { ProjectList } from "../../components/ProjectsList";
+import useProjects from "../../hooks/useProject";
+
 
 const Dashboard = () => {
-  const { users, error, isLoading } = useUser();
+  const { projects, error, isLoading } = useProjects();
   return (
     <div>
       {isLoading && <p> Ładowanie</p>}
       {error && <p> {error}</p>}
-      <UserList users={users} />;
+      <ProjectList projects={projects} />;
     </div>
   );
 };
