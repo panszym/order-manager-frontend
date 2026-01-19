@@ -1,14 +1,13 @@
-import { AccessoryList } from "../../components/AccessoryList";
-import useAccessory from "../../hooks/useAccessory";
-
+import { UserList } from "../../components/UserList";
+import useUser from "../../hooks/useUser";
 
 const Dashboard = () => {
-  const { accessory, error, isLoading } = useAccessory();
+  const { users, error, isLoading } = useUser();
   return (
     <div>
       {isLoading && <p> Ładowanie</p>}
       {error && <p> {error}</p>}
-      <AccessoryList accessories={accessory} />;
+      <UserList users={users} />;
     </div>
   );
 };

@@ -13,7 +13,6 @@ const useAccessory = () => {
     getAccessory()
       .then((response) => {
         setAccessory(response.data);
-        console.log(response.data)
       })
       .catch((error) => setErrors(error.message))
       .finally(() => setLoader(false));
