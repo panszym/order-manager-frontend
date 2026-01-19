@@ -1,16 +1,18 @@
+import { ArticleList } from "../../components/ArticleList";
 import { OrderList } from "../../components/OrderList";
 import { ProjectList } from "../../components/ProjectsList";
+import useArticles from "../../hooks/useArticles";
 import useOrders from "../../hooks/useOrder";
 import useProjects from "../../hooks/useProject";
 
 
 const Dashboard = () => {
-  const { orders, error, isLoading } = useOrders();
+  const { articles, error, isLoading } = useArticles();
   return (
     <div>
       {isLoading && <p> Ładowanie</p>}
       {error && <p> {error}</p>}
-      <OrderList orders={orders} />;
+      <ArticleList articles={articles} />;
     </div>
   );
 };

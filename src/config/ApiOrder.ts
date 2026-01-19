@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiOrder = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "http://localhost:8080/orders",
 });
 
 export default apiOrder;
