@@ -9,10 +9,10 @@ import useProjects from "../../hooks/useProject";
 const Dashboard = () => {
   const { articles, error, isLoading } = useArticles();
   return (
-    <div>
+    <div className="container">
       {isLoading && <p> Ładowanie</p>}
       {error && <p> {error}</p>}
-      <ArticleList articles={articles} />;
+      <ArticleList articles={articles} />
     </div>
   );
 };
