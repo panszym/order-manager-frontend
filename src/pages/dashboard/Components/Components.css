@@ -1,0 +1,45 @@
+#navbar{
+    background: linear-gradient(90deg, rgba(106,18,50,0.9473039215686274) 0%, rgba(97,12,26,1) 52%, rgba(98,7,18,1) 100%);
+    font-size: 20px;
+}
+
+#signInButton{
+    color: #fff;
+}
+
+#signInButton:hover {
+    background-color: #b0152f;
+}
+
+.navbar-brand{
+    color: #fff;
+}
+
+.nav-link{
+    color: #fff;
+}
+
+.nav-link:hover{
+    color: gray;
+}
+
+#footer{
+	width: 100%;
+    background: linear-gradient(90deg, rgba(106,18,50,0.9473039215686274) 0%, rgba(97,12,26,1) 52%, rgba(98,7,18,1) 100%);
+}
+
+#what-we-offer{
+    color: white;
+    background: linear-gradient(90deg, rgba(106,18,50,0.9473039215686274) 0%, rgba(97,12,26,1) 52%, rgba(98,7,18,1) 100%);
+}
+
+#opening-hours{
+    margin: 0;
+}
+
+#adminDropdown{
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    margin-top: 2px;
+}

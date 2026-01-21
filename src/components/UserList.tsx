@@ -1,35 +1,34 @@
+import type { Project } from "../model/ProjectModel";
 import type { User } from "../model/UserModel";
 
-interface Props {
-    users: User[]
-}
-
-export const UserList = ({users}: Props) => {
-    
+export const UserList: React.FC<{ users: User[] }> = (props) => {
   return (
-    <div>
-      <table border={3}>
-        <thead>
-          <tr>
-            <th>FirstName</th>
-            <th>LastName</th>
-            <th>Login</th>
-            <th>Status</th>
-            <th>Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.firstName}</td>
-              <td>{user.lastName}</td>
-              <td>{user.login}</td>
-              <td>{user.status}</td>
-              <td>{user.role}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {props.users.map((user) => (
+        <div
+          key={user.id}
+          className="card mt-3 shadow p-3 mb-3 bg-body rounded"
+        >
+          <div className="row g-0">
+            <div className="col-md-2 d-flex justify-content-center align-items-center">
+              <div className="container d-flex justify-content-center align-items-center">
+                <p>
+                  Status: <br /> {user.status}
+                  <br />
+                  Rola: <br /> {user.role}
+                </p>
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="card-body">
+                <h4 className="card-title">{user.firstName}</h4>
+                <h6>{user.lastName}</h6>
+                <h6>{user.login}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
   );
-}
+};
