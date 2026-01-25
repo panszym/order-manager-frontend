@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
 import type { Article } from "../model/ArticleModel";
 
 export const ArticleList: React.FC<{ articles: Article[] }> = (props) => {
   return (
     <>
       {props.articles.map((article) => (
+        <Link
+        key={article.orderCode}
+                to={`/articles/orderCode/${article.orderCode}`}
+                style={{ textDecoration: "none" }}>
         <div
           key={article.id}
           className="card mt-3 shadow p-3 mb-3 bg-body rounded"
@@ -45,6 +50,7 @@ export const ArticleList: React.FC<{ articles: Article[] }> = (props) => {
             </div>
           </div>
         </div>
+        </Link>
       ))}
     </>
   );

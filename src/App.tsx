@@ -6,6 +6,7 @@ import { OrderPage } from "./Order/OrderPage";
 import { AccessoryPage } from "./Accessory/AccessoryPage";
 import { ProjectPage } from "./Project/ProjectPage";
 import { UserPage } from "./User/UserPage";
+import { ArticleDetailsPage } from "./Article/ArticleDetailsPage";
 
 Dashboard;
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/accessories" element={<AccessoryPage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/users" element={<UserPage />} />
+          <Route path="/articles/orderCode/:orderCode" element={<ArticleDetailsPage />} />
         </Routes>
       </div>
     </div>

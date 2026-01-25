@@ -1,0 +1,6 @@
+#ArticleCard{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
