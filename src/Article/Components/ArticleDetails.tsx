@@ -104,10 +104,10 @@ export const ArticleDetails = () => {
           Wróć do listy
         </Link>
         <Link
-          to={`/home`}
+          to={`/articles/edit/${article?.orderCode}`}
           className="btn btn-sm btn-primary"
         >
-          Edit details
+          Edytuj
         </Link>
         <button
           type="button"

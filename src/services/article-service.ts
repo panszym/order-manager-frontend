@@ -10,6 +10,15 @@ export const getArticleByOrderCode = (orderCode: string) => {
     return apiArticle.get<Article>(`orderCode/${orderCode}`);
 }
 
+export const getArticleById = (articleId: string) => {
+    return apiArticle.get<Article>(`/${articleId}`);
+}
+
 export const deleteArticle = (orderCode: string) => {
   return apiArticle.delete(`orderCode/${orderCode}`);
 };
+
+export const updateArticle = (orderCode: string, article: Article) => {
+  return apiArticle.patch<Article>(`/${orderCode}`, article);
+};
+
