@@ -8,6 +8,8 @@ import { ProjectPage } from "./Project/ProjectPage";
 import { UserPage } from "./User/UserPage";
 import { ArticleDetailsPage } from "./Article/ArticleDetailsPage";
 import { UpdateArticlePage } from "./Article/UpdateArticlePage";
+import { AccessoryDetailsPage } from "./Accessory/AccessoryDetailsPage";
+import { UpdateAccessoryPage } from "./Accessory/UpdateAccessoryPage";
 
 Dashboard;
 const App = () => {
@@ -23,7 +25,8 @@ const App = () => {
           <Route path="/users" element={<UserPage />} />
           <Route path="/articles/orderCode/:orderCode" element={<ArticleDetailsPage />} />
           <Route path="/articles/edit/:orderCode" element={<UpdateArticlePage />} />
-        </Routes>
+          <Route path="/accessories/orderCode/:orderCode" element={<AccessoryDetailsPage />} />        
+          <Route path="/accessories/edit/:orderCode" element={<UpdateAccessoryPage />} />        </Routes>
       </div>
     </div>
   );

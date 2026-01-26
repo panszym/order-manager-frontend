@@ -1,41 +1,36 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useFormik } from "formik";
-
-import type { Article } from "../../model/ArticleModel";
-import { getArticleByOrderCode, updateArticle } from "../../services/article-service";
-import { ArticleUpdateValidation } from "../../validation/ArticleUpdateValidation";
-import { ArticleCategoryConstant,  } from "../../Utils/ArticleCategoryConstant";
-import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
 import { ProducerConstant } from "../../Utils/ProducerConstant";
-import { UpdateConfirm } from "./UpdateConfirm";
-import { ProducerChoose } from "./ProducerChoose";
+import type { Accessory } from "../../model/AccessoryModel";
+import {
+  getAccessoryByOrderCode,
+  updateAccessory,
+} from "../../services/accessory-service";
+import { AccessoryUpdateValidation } from "../../validation/AccessoryUpdateValidation";
+import { ProducerChoose } from "../../Article/Components/ProducerChoose";
+import { UpdateConfirm } from "../../Article/Components/UpdateConfirm";
 
-export const ArticleUpdate = () => {
+export const AccessoryUpdate = () => {
   const navigate = useNavigate();
   const { orderCode } = useParams<{ orderCode: string }>();
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   const [error, setErrors] = useState<string>("");
   const [isLoading, setLoader] = useState<boolean>(false);
-  const [initialValues, setInitialValues] = useState<Article>({
+  const [initialValues, setInitialValues] = useState<Accessory>({
     title: "",
     orderCode: "",
     description: "",
     producer: "",
     nominalCurrent: 0,
     nominalVoltage: "",
-    width: 0,
-    height: 0,
-    depth: 0,
-    category: "",
   });
 
   useEffect(() => {
     if (orderCode) {
       setLoader(true);
-      getArticleByOrderCode(orderCode)
+      getAccessoryByOrderCode(orderCode)
         .then((res) => {
           if (res && res.data) {
             setInitialValues(res.data);
@@ -49,19 +44,19 @@ export const ArticleUpdate = () => {
   const formik = useFormik({
     initialValues,
     enableReinitialize: true,
-    onSubmit: (values: Article) => {
+    onSubmit: (values: Accessory) => {
       if (orderCode !== null)
-        updateArticle(orderCode!, values)
+        updateAccessory(orderCode!, values)
           .then((response) => {
             if (response && response.status === 200) {
-              navigate(`/articles`);
+              navigate(`/accessories`);
             }
           })
           .catch((error) => {
             setErrors(error.message);
           });
     },
-    validationSchema: ArticleUpdateValidation,
+    validationSchema: AccessoryUpdateValidation,
   });
 
   const handleCancel = () => {
@@ -161,51 +156,6 @@ export const ArticleUpdate = () => {
             />
           </div>
 
-          <div className="mb-3">
-            <label htmlFor="height" className="form-label">
-              Wysokość
-            </label>
-            <input
-              type="number"
-              id="height"
-              name="height"
-              className="form-control border"
-              value={formik.values.height}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="width" className="form-label">
-              Szerokość
-            </label>
-            <input
-              type="number"
-              id="width"
-              name="width"
-              className="form-control border"
-              value={formik.values.width}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-
-          <div className="mb-3">
-            <label htmlFor="depth" className="form-label">
-              Głębokość
-            </label>
-            <input
-              type="number"
-              id="depth"
-              name="depth"
-              className="form-control border"
-              value={formik.values.depth}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-
           <div className="d-flex justify-content-center align-items-center mt-1">
             <div className="mx-3">
               <p>Producent:</p>
@@ -223,23 +173,7 @@ export const ArticleUpdate = () => {
               />
             </div>
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Kategoria:</p>
-            </div>
-            <div>
-              <ArticleCategoryChoose
-                options={ArticleCategoryConstant}
-                id="category"
-                name="category"
-                value={formik.values.category}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.category}
-                touched={formik.touched.category}
-              />
-            </div>
-          </div>
+
           <div className="container d-flex align-items-center  justify-content-center">
             <button
               className="btn btn-sm btn-primary mb-2"

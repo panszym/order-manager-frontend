@@ -11,7 +11,7 @@ interface Props {
 
 
 
-export const ArticleProducerChoose = ({
+export const ProducerChoose = ({
     options,
     id,
     name,
