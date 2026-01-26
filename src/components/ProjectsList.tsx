@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
 import type { Project } from "../model/ProjectModel";
 
 export const ProjectList: React.FC<{ projects: Project[] }> = (props) => {
   return (
     <>
       {props.projects.map((project) => (
+        <Link
+        key={project.projectCode}
+                to={`/projects/projectCode/${project.projectCode}`}
+                style={{ textDecoration: "none" }}>
         <div
           key={project.id}
           className="card mt-3 shadow p-3 mb-3 bg-body rounded"
@@ -26,6 +31,7 @@ export const ProjectList: React.FC<{ projects: Project[] }> = (props) => {
             </div>
           </div>
         </div>
+        </Link>
       ))}
     </>
   );

@@ -10,6 +10,8 @@ import { ArticleDetailsPage } from "./Article/ArticleDetailsPage";
 import { UpdateArticlePage } from "./Article/UpdateArticlePage";
 import { AccessoryDetailsPage } from "./Accessory/AccessoryDetailsPage";
 import { UpdateAccessoryPage } from "./Accessory/UpdateAccessoryPage";
+import { ProjectDetailsPage } from "./Project/ProjectDetailsPage";
+import { UpdateProjectPage } from "./Project/UpdateProjectPage";
 
 Dashboard;
 const App = () => {
@@ -26,7 +28,10 @@ const App = () => {
           <Route path="/articles/orderCode/:orderCode" element={<ArticleDetailsPage />} />
           <Route path="/articles/edit/:orderCode" element={<UpdateArticlePage />} />
           <Route path="/accessories/orderCode/:orderCode" element={<AccessoryDetailsPage />} />        
-          <Route path="/accessories/edit/:orderCode" element={<UpdateAccessoryPage />} />        </Routes>
+          <Route path="/accessories/edit/:orderCode" element={<UpdateAccessoryPage />} />        
+          <Route path="/projects/projectCode/:projectCode" element={<ProjectDetailsPage />} />        
+          <Route path="/projects/edit/:projectCode" element={<UpdateProjectPage />} /> 
+          </Routes>
       </div>
     </div>
   );
