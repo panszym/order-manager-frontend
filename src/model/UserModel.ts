@@ -4,5 +4,5 @@ export interface User{
     lastName: string;
     login: string;
     status: string;
-    role: number;
+    role: string;
 }

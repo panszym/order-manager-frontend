@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Project } from "../model/ProjectModel";
 import type { User } from "../model/UserModel";
 
@@ -5,6 +6,11 @@ export const UserList: React.FC<{ users: User[] }> = (props) => {
   return (
     <>
       {props.users.map((user) => (
+        <Link
+          key={user.login}
+          to={`/users/login/${user.login}`}
+          style={{ textDecoration: "none" }}
+        >
         <div
           key={user.id}
           className="card mt-3 shadow p-3 mb-3 bg-body rounded"
@@ -28,6 +34,7 @@ export const UserList: React.FC<{ users: User[] }> = (props) => {
             </div>
           </div>
         </div>
+        </Link>
       ))}
     </>
   );

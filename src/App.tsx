@@ -12,6 +12,10 @@ import { AccessoryDetailsPage } from "./Accessory/AccessoryDetailsPage";
 import { UpdateAccessoryPage } from "./Accessory/UpdateAccessoryPage";
 import { ProjectDetailsPage } from "./Project/ProjectDetailsPage";
 import { UpdateProjectPage } from "./Project/UpdateProjectPage";
+import { OrderDetailsPage } from "./Order/OrderDetailsPage";
+import { OrderUpdatePage } from "./Order/OrderUpdatePage";
+import { UserDetailsPage } from "./User/UserDetailsPage";
+import { UpdateUserPage } from "./User/UpdateUserPage";
 
 Dashboard;
 const App = () => {
@@ -25,13 +29,38 @@ const App = () => {
           <Route path="/accessories" element={<AccessoryPage />} />
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/users" element={<UserPage />} />
-          <Route path="/articles/orderCode/:orderCode" element={<ArticleDetailsPage />} />
-          <Route path="/articles/edit/:orderCode" element={<UpdateArticlePage />} />
-          <Route path="/accessories/orderCode/:orderCode" element={<AccessoryDetailsPage />} />        
-          <Route path="/accessories/edit/:orderCode" element={<UpdateAccessoryPage />} />        
-          <Route path="/projects/projectCode/:projectCode" element={<ProjectDetailsPage />} />        
-          <Route path="/projects/edit/:projectCode" element={<UpdateProjectPage />} /> 
-          </Routes>
+          <Route
+            path="/articles/orderCode/:orderCode"
+            element={<ArticleDetailsPage />}
+          />
+          <Route
+            path="/articles/edit/:orderCode"
+            element={<UpdateArticlePage />}
+          />
+          <Route
+            path="/accessories/orderCode/:orderCode"
+            element={<AccessoryDetailsPage />}
+          />
+          <Route
+            path="/accessories/edit/:orderCode"
+            element={<UpdateAccessoryPage />}
+          />
+          <Route
+            path="/projects/projectCode/:projectCode"
+            element={<ProjectDetailsPage />}
+          />
+          <Route
+            path="/projects/edit/:projectCode"
+            element={<UpdateProjectPage />}
+          />
+          <Route
+            path="/orders/orderCode/:orderCode"
+            element={<OrderDetailsPage />}
+          />
+          <Route path="/orders/edit/:orderCode" element={<OrderUpdatePage />} />
+          <Route path="/users/login/:login" element={<UserDetailsPage />} />
+          <Route path="/users/edit/:login" element={<UpdateUserPage />} />
+        </Routes>
       </div>
     </div>
   );

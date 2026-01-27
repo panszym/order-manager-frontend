@@ -1,0 +1,10 @@
+#userDetails-table{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#thead-userDetails-table{
+    background: linear-gradient(90deg, rgba(106,18,50,0.9473039215686274) 0%, rgba(97,12,26,1) 52%, rgba(98,7,18,1) 100%);
+}
