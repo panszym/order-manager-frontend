@@ -20,3 +20,7 @@ export const deleteProject = (projectCode: string) => {
 export const updateProject = (projectCode: string, project: Project) => {
   return apiProjects.patch<Project>(`/${projectCode}`, project);
 };
+
+export const addProject = ( project: Project) => {
+  return apiProjects.post<Project>(``, project);
+};
