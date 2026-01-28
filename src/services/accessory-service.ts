@@ -19,3 +19,7 @@ export const deleteAccessory = (orderCode: string) => {
 export const updateAccessory = (orderCode: string, accessory: Accessory) => {
   return apiAccessory.patch<Accessory>(`/${orderCode}`, accessory);
 };
+
+export const addAccessory = (accessory: Accessory) => {
+  return apiAccessory.post<Accessory>(``, accessory);
+};

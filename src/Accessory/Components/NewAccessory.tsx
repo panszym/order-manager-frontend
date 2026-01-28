@@ -1,51 +1,45 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import type { Article } from "../../model/ArticleModel";
-import { addArticle } from "../../services/article-service";
-import { NewArticleValidation } from "../../validation/NewArticleValidation";
-import { ProducerChoose } from "./ProducerChoose";
 import { ProducerConstant } from "../../Utils/ProducerConstant";
-import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
-import { ArticleCategoryConstant } from "../../Utils/ArticleCategoryConstant";
 import { AddConfirm } from "../../components/AddConfirm";
+import type { Accessory } from "../../model/AccessoryModel";
+import { addAccessory } from "../../services/accessory-service";
+import { ProducerChoose } from "../../Article/Components/ProducerChoose";
+import { NewAccessoryValidation } from "../../validation/NewAccessoryValidation";
 
-export const NewArticle = () => {
+export const NewAccessory = () => {
   const navigate = useNavigate();
 
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   const [error, setErrors] = useState<string>("");
   const [isLoading, setLoader] = useState<boolean>(false);
-  const [initialValues, setInitialValues] = useState<Article>({
+  const [initialValues, setInitialValues] = useState<Accessory>({
     title: "",
     orderCode: "",
     description: "",
     producer: "",
     nominalCurrent: 0,
     nominalVoltage: "",
-    width: 0.0,
-    height: 0.0,
-    depth: 0.0,
-    category: "",
   });
 
   const formik = useFormik({
     enableReinitialize: true,
     initialValues,
-    onSubmit: (values: Article) => {
+    onSubmit: (values: Accessory) => {
       console.log(values);
-      addArticle(values)
+      addAccessory(values)
         .then((response) => {
           if (response && response.status === 200) {
-            navigate(`/articles`);
+            navigate(`/accessories`);
           }
         })
         .catch((error) => {
           setErrors(error.response.data.message);
         });
     },
-    validationSchema: NewArticleValidation,
+    validationSchema: NewAccessoryValidation,
   });
 
   const handleCancel = () => {
@@ -161,66 +155,6 @@ export const NewArticle = () => {
               onBlur={formik.handleBlur}
             />
           </div>
-          <div className="mb-3">
-            <label htmlFor="height" className="form-label">
-              {`Wysokość [mm]:`}
-            </label>
-            <input
-              type="number"
-              id="height"
-              name="height"
-              className="form-control border"
-              value={formik.values.height}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="width" className="form-label">
-              {`Szerokość [mm]:`}
-            </label>
-            <input
-              type="number"
-              id="width"
-              name="width"
-              className="form-control border"
-              value={formik.values.width}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="depth" className="form-label">
-              {`Głębokość [mm]:`}
-            </label>
-            <input
-              type="number"
-              id="depth"
-              name="depth"
-              className="form-control border"
-              value={formik.values.depth}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </div>
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Kategoria:</p>
-            </div>
-            <div>
-              <ArticleCategoryChoose
-                options={ArticleCategoryConstant}
-                id="category"
-                name="category"
-                value={formik.values.category}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.category}
-                touched={formik.touched.category}
-              />
-            </div>
-          </div>
-
           <div className="container d-flex align-items-center  justify-content-center">
             <button
               className="btn btn-sm btn-primary mb-2"

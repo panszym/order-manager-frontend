@@ -16,7 +16,8 @@ import { OrderDetailsPage } from "./Order/OrderDetailsPage";
 import { OrderUpdatePage } from "./Order/OrderUpdatePage";
 import { UserDetailsPage } from "./User/UserDetailsPage";
 import { UpdateUserPage } from "./User/UpdateUserPage";
-import { NewrticlePage } from "./Article/NewArticlePage";
+import { NewAccessoryPage } from "./Accessory/NewAccessoryPage";
+import { NewArticlePage } from "./Article/NewArticlePage";
 
 Dashboard;
 const App = () => {
@@ -40,7 +41,7 @@ const App = () => {
           />
           <Route
             path="/articles/new"
-            element={<NewrticlePage />}
+            element={<NewArticlePage />}
           />
           <Route
             path="/accessories/orderCode/:orderCode"
@@ -49,6 +50,10 @@ const App = () => {
           <Route
             path="/accessories/edit/:orderCode"
             element={<UpdateAccessoryPage />}
+          />
+          <Route
+            path="/accessories/new"
+            element={<NewAccessoryPage />}
           />
           <Route
             path="/projects/projectCode/:projectCode"
