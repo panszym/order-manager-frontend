@@ -1,28 +1,26 @@
 interface Props {
-    options: string[];
-    name: string;
-    id: string;
-    value: string;
-    onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    onBlur: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-    error?: string;
-    touched?: boolean;
+  options: string[];
+  name: string;
+  id: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  onBlur: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+  error?: string;
+  touched?: boolean;
 }
 
-
-
 export const ProducerChoose = ({
-    options,
-    id,
-    name,
-    value,
-    onChange,
-    onBlur,
-    error,
-    touched
+  options,
+  id,
+  name,
+  value,
+  onChange,
+  onBlur,
+  error,
+  touched,
 }: Props) => {
-    return(
-        <div className="mb-3">
+  return (
+    <div className="mb-3">
       <select
         name={name}
         id={id}
@@ -31,7 +29,7 @@ export const ProducerChoose = ({
         onBlur={onBlur}
         value={value}
       >
-
+        <option value="">-- wybierz producenta --</option>
         {options.map((option) => (
           <option key={option} value={option} label={option} />
         ))}
@@ -40,5 +38,5 @@ export const ProducerChoose = ({
         <div className="text-danger fst-italic">{error}</div>
       ) : null}
     </div>
-    )
-}
+  );
+};

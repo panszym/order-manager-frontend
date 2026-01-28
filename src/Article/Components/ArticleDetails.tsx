@@ -55,7 +55,7 @@ export const ArticleDetails = () => {
                   <td>{article ? article.orderCode : "N/A"}</td>
                 </tr>
                 <tr>
-                  <th>Opis:</th>
+                  <th>Produkt:</th>
                   <td>{article ? article.title : "N/A"}</td>
                 </tr>
                 <tr>

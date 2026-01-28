@@ -22,3 +22,8 @@ export const updateArticle = (orderCode: string, article: Article) => {
   return apiArticle.patch<Article>(`/${orderCode}`, article);
 };
 
+export const addArticle = (article: Article) => {
+  return apiArticle.post<Article>(``, article);
+};
+
+
