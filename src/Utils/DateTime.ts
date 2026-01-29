@@ -28,15 +28,20 @@ class DateTimeFormat {
     const date = new Date(dateString);
 
     if (isNaN(date.getTime())) return "Invalid date";
-      return new Intl.DateTimeFormat("pl-PL", {
-        year: "numeric",
-        month: "long",
-        day: "2-digit",
-        hour: "numeric",
-        minute: "numeric",
-      }).format(date);
-    }
+    return new Intl.DateTimeFormat("pl-PL", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+      hour: "numeric",
+      minute: "numeric",
+    }).format(date);
   }
+  static nowForInput(): string {
+  const now = new Date();
+  const pad = (n: number) => n.toString().padStart(2, "0");
 
+  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+}
+}
 
 export default DateTimeFormat;

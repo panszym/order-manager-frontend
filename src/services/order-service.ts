@@ -20,3 +20,7 @@ export const deleteOrder = (orderCode: string) => {
 export const updateOrder = (orderCode: string, order: Order) => {
   return apiOrder.patch<Order>(`/${orderCode}`, order);
 };
+
+export const addOrder = (order: Order) => {
+  return apiOrder.post<Order>(``, order);
+};

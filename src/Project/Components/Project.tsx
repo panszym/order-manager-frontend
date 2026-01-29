@@ -14,7 +14,7 @@ const Project = () => {
                   type="button"
                   className="btn btn-success"
                 >
-                  Nowy artykuł
+                  Nowy projekt
                 </Link>
               </div>
             </div>

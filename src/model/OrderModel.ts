@@ -2,6 +2,6 @@ export interface Order {
   id?: number;
   orderCode: string;
   client: string;
-  dateTime: Date;
+  dateTime: string;
   status: string;
 }
