@@ -1,6 +1,5 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Components.css";
-import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 
 export const Navbar = () => {

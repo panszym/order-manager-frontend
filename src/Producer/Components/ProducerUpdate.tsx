@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import { useFormik } from "formik";
-
-import type { Project } from "../../model/ProjectModel";
-import {
-  getProjectByProjectCode,
-  updateProject,
-} from "../../services/project-service";
-import { ProjectUpdateValidation } from "../../validation/ProjectUpdateValidation";
 import { UpdateConfirm } from "../../Article/Components/UpdateConfirm";
 import type { Producer } from "../../model/ProducerModel";
 import {

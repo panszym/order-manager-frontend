@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import { ProducerConstant } from "../../Utils/ProducerConstant";
 import { AddConfirm } from "../../components/AddConfirm";
 import type { Accessory } from "../../model/AccessoryModel";
 import { addAccessory } from "../../services/accessory-service";
-import { ProducerChoose } from "../../Article/Components/ProducerChoose";
 import { NewAccessoryValidation } from "../../validation/NewAccessoryValidation";
 import { ProducerChooseWrapper } from "../../Article/Components/ProducerChooseWrapper";
 

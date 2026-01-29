@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import useProducers from "../../hooks/useProducer";
 import type { Producer } from "../../model/ProducerModel";
 import { ProducerChoose } from "./ProducerChoose";

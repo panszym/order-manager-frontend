@@ -2,8 +2,6 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Components.css";
 import { useState } from "react";
 import { DeleteConfirm } from "../../components/DeleteConfirm";
-import { deleteProject } from "../../services/project-service";
-import { useProjectDetails } from "../../hooks/useProjectDetails";
 import { useProducerDetails } from "../../hooks/useProducerDetails";
 import { deleteProducer } from "../../services/producer-service";
 
