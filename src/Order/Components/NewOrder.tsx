@@ -19,7 +19,7 @@ export const NewOrder = () => {
   const [initialValues, setInitialValues] = useState<Order>({
     orderCode: "",
     client: "",
-    dateTime: DateTimeFormat.nowForInput(),
+    dateTime: new Date(),
     status: "",
   });
 
@@ -27,6 +27,10 @@ export const NewOrder = () => {
     enableReinitialize: true,
     initialValues,
     onSubmit: (values: Order) => {
+      const orderToSave = {
+        ...values,
+        dateTime: DateTimeFormat.formatDateForInput(values.dateTime), // zamiana Date → string dla backendu
+      };
       console.log(values);
       addOrder(values)
         .then((response) => {

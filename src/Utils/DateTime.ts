@@ -36,12 +36,10 @@ class DateTimeFormat {
       minute: "numeric",
     }).format(date);
   }
-  static nowForInput(): string {
-  const now = new Date();
-  const pad = (n: number) => n.toString().padStart(2, "0");
-
-  return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
-}
+  static formatDateForInput = (date: Date) => {
+    const pad = (n: number) => n.toString().padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  };
 }
 
 export default DateTimeFormat;
