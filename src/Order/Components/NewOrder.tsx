@@ -7,7 +7,6 @@ import { addOrder } from "../../services/order-service";
 import { NewOrderValidation } from "../../validation/NewOrderValidation";
 import { StatusChoose } from "./StatusChoose";
 import { OrderStatusConstant } from "../../Utils/OrderStatusConstant";
-import DateTimeFormat from "../../Utils/DateTime";
 
 export const NewOrder = () => {
   const navigate = useNavigate();
@@ -27,11 +26,6 @@ export const NewOrder = () => {
     enableReinitialize: true,
     initialValues,
     onSubmit: (values: Order) => {
-      const orderToSave = {
-        ...values,
-        dateTime: DateTimeFormat.formatDateForInput(values.dateTime), // zamiana Date → string dla backendu
-      };
-      console.log(values);
       addOrder(values)
         .then((response) => {
           if (response && response.status === 200) {
@@ -39,7 +33,7 @@ export const NewOrder = () => {
           }
         })
         .catch((error) => {
-          setErrors(error.response.data.message);
+          setErrors(error.response?.data?.message || "Błąd sieci");
         });
     },
     validationSchema: NewOrderValidation,
