@@ -4,11 +4,10 @@ import { useFormik } from "formik";
 import type { Article } from "../../model/ArticleModel";
 import { addArticle } from "../../services/article-service";
 import { NewArticleValidation } from "../../validation/NewArticleValidation";
-import { ProducerChoose } from "./ProducerChoose";
-import { ProducerConstant } from "../../Utils/ProducerConstant";
 import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
 import { ArticleCategoryConstant } from "../../Utils/ArticleCategoryConstant";
 import { AddConfirm } from "../../components/AddConfirm";
+import { ProducerChooseWrapper } from "./ProducerChooseWrapper";
 
 export const NewArticle = () => {
   const navigate = useNavigate();
@@ -114,22 +113,8 @@ export const NewArticle = () => {
             />
           </div>
 
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Producent:</p>
-            </div>
-            <div>
-              <ProducerChoose
-                options={ProducerConstant}
-                id="producer"
-                name="producer"
-                value={formik.values.producer}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.producer}
-                touched={formik.touched.producer}
-              />
-            </div>
+          <div className="mb-3">
+            <ProducerChooseWrapper formik={formik} />
           </div>
 
           <div className="mb-3">

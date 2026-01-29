@@ -1,10 +1,10 @@
-import useArticles from "../hooks/useArticles";
+import useAccessory from "../hooks/useAccessory";
 import { Footer } from "../pages/dashboard/Components/Footer";
 import { Navbar } from "../pages/dashboard/Components/Navbar";
 import { AccessoryDetails } from "./Components/AccessoryDetails";
 
 export const AccessoryDetailsPage = () => {
-  const { error, isLoading } = useArticles();
+  const { error, isLoading } = useAccessory();
 
   return (
     <div className="d-flex flex-column min-vh-100">

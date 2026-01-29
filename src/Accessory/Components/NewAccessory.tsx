@@ -7,6 +7,7 @@ import type { Accessory } from "../../model/AccessoryModel";
 import { addAccessory } from "../../services/accessory-service";
 import { ProducerChoose } from "../../Article/Components/ProducerChoose";
 import { NewAccessoryValidation } from "../../validation/NewAccessoryValidation";
+import { ProducerChooseWrapper } from "../../Article/Components/ProducerChooseWrapper";
 
 export const NewAccessory = () => {
   const navigate = useNavigate();
@@ -108,22 +109,8 @@ export const NewAccessory = () => {
             />
           </div>
 
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Producent:</p>
-            </div>
-            <div>
-              <ProducerChoose
-                options={ProducerConstant}
-                id="producer"
-                name="producer"
-                value={formik.values.producer}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.producer}
-                touched={formik.touched.producer}
-              />
-            </div>
+          <div className="mb-3">
+            <ProducerChooseWrapper formik={formik} />
           </div>
 
           <div className="mb-3">

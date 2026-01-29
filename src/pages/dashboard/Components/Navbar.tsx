@@ -3,13 +3,8 @@ import "./Components.css";
 import { useEffect, useState } from "react";
 import { FaBars } from "react-icons/fa";
 
-
 export const Navbar = () => {
-  
   const navigate = useNavigate();
-
-  
-
 
   return (
     <nav className="navbar navbar-expand-lg py-4" id="navbar">
@@ -20,20 +15,23 @@ export const Navbar = () => {
               Home
             </NavLink>
             <NavLink className="nav-link text-white" to="/articles">
-Artykuły            </NavLink>
+              Artykuły{" "}
+            </NavLink>
             <NavLink className="nav-link text-white" to="/accessories">
               Akcesoria
             </NavLink>
             <NavLink className="nav-link text-white" to="/orders">
-Zamówienia            </NavLink>
+              Zamówienia{" "}
+            </NavLink>
             <NavLink className="nav-link text-white" to="/projects">
               Projekty
             </NavLink>
             <NavLink className="nav-link text-white" to="/users">
               Użytkownicy
             </NavLink>
-            
-        
+            <NavLink className="nav-link text-white" to="/producers">
+              Producenci
+            </NavLink>
           </div>
         </div>
 

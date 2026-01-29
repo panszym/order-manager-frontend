@@ -4,13 +4,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 
 import type { Article } from "../../model/ArticleModel";
-import { getArticleByOrderCode, updateArticle } from "../../services/article-service";
+import {
+  getArticleByOrderCode,
+  updateArticle,
+} from "../../services/article-service";
 import { ArticleUpdateValidation } from "../../validation/ArticleUpdateValidation";
-import { ArticleCategoryConstant,  } from "../../Utils/ArticleCategoryConstant";
+import { ArticleCategoryConstant } from "../../Utils/ArticleCategoryConstant";
 import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
-import { ProducerConstant } from "../../Utils/ProducerConstant";
 import { UpdateConfirm } from "./UpdateConfirm";
-import { ProducerChoose } from "./ProducerChoose";
+import { ProducerChooseWrapper } from "./ProducerChooseWrapper";
 
 export const ArticleUpdate = () => {
   const navigate = useNavigate();
@@ -206,22 +208,8 @@ export const ArticleUpdate = () => {
             />
           </div>
 
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Producent:</p>
-            </div>
-            <div>
-              <ProducerChoose
-                options={ProducerConstant}
-                id="producer"
-                name="producer"
-                value={formik.values.producer}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.producer}
-                touched={formik.touched.producer}
-              />
-            </div>
+          <div className="mb-3">
+            <ProducerChooseWrapper formik={formik} />
           </div>
           <div className="d-flex justify-content-center align-items-center mt-1">
             <div className="mx-3">

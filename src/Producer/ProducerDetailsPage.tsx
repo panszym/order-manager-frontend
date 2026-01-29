@@ -1,10 +1,10 @@
-import useProjects from "../hooks/useProject";
+import useProducers from "../hooks/useProducer";
 import { Footer } from "../pages/dashboard/Components/Footer";
 import { Navbar } from "../pages/dashboard/Components/Navbar";
-import { ProjectDetails } from "./Components/ProjectDetails";
+import { ProducerDetails } from "./Components/ProducerDetails";
 
-export const ProjectDetailsPage = () => {
-  const { error, isLoading } = useProjects();
+export const ProducerDetailsPage = () => {
+  const { error, isLoading } = useProducers();
 
   return (
     <div className="d-flex flex-column min-vh-100">
@@ -13,7 +13,7 @@ export const ProjectDetailsPage = () => {
         <div className="container">
           {isLoading && <p>Ładowanie...</p>}
           {error && <p className="text-danger">{error}</p>}
-          <ProjectDetails />
+          <ProducerDetails />
         </div>
       </div>
       <Footer />

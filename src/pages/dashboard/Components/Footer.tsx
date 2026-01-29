@@ -68,6 +68,15 @@ export const Footer = () => {
               Użytkownicy
             </Link>
           </li>
+          <li className="nav-item">
+            <Link
+              onClick={scroll}
+              className="nav-link px-2 text-white"
+              to="/producers"
+            >
+              Producenci
+            </Link>
+          </li>
         </ul>
       </footer>
     </div>

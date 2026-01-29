@@ -1,13 +1,13 @@
-import { Footer } from "../pages/dashboard/Components/Footer";
 import { Navbar } from "../pages/dashboard/Components/Navbar";
-import { OrderUpdate } from "./Components/OrderUpdate";
+import { Footer } from "../pages/dashboard/Components/Footer";
+import Producer from "./Components/Producer";
 
-export const OrderUpdatePage = () => {
+export const ProducerPage = () => {
   return (
     <div className="d-flex flex-column min-vh-100">
       <Navbar />
       <div className="flex-grow-1">
-        <OrderUpdate />
+        <Producer />
       </div>
       <Footer />
     </div>
