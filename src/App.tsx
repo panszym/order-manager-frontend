@@ -13,7 +13,7 @@ import { UpdateAccessoryPage } from "./Accessory/UpdateAccessoryPage";
 import { ProjectDetailsPage } from "./Project/ProjectDetailsPage";
 import { UpdateProjectPage } from "./Project/UpdateProjectPage";
 import { OrderDetailsPage } from "./Order/OrderDetailsPage";
-import { OrderUpdatePage,  } from "./Order/OrderUpdatePage";
+import { OrderUpdatePage } from "./Order/OrderUpdatePage";
 import { UserDetailsPage } from "./User/UserDetailsPage";
 import { UpdateUserPage } from "./User/UpdateUserPage";
 import { NewAccessoryPage } from "./Accessory/NewAccessoryPage";
@@ -24,6 +24,10 @@ import { ProducerDetailsPage } from "./Producer/ProducerDetailsPage";
 import { NewProducerPage } from "./Producer/NewProducerPage";
 import { ProducerUpdatePage } from "./Producer/ProducerUpdatePage";
 import { ProducerPage } from "./Producer/ProducerPage";
+import { CategoryPage } from "./Category/CAtegoryPage";
+import { CategoryDetailsPage } from "./Category/CategoryDetailsPage";
+import { CategoryUpdatePage } from "./Category/CategoryUpdatePage";
+import { NewCategoryPage } from "./Category/NewCategoryPage";
 
 Dashboard;
 const App = () => {
@@ -38,6 +42,7 @@ const App = () => {
           <Route path="/projects" element={<ProjectPage />} />
           <Route path="/users" element={<UserPage />} />
           <Route path="/producers" element={<ProducerPage />} />
+          <Route path="/categories" element={<CategoryPage />} />
           <Route
             path="/articles/orderCode/:orderCode"
             element={<ArticleDetailsPage />}
@@ -46,10 +51,7 @@ const App = () => {
             path="/articles/edit/:orderCode"
             element={<UpdateArticlePage />}
           />
-          <Route
-            path="/articles/new"
-            element={<NewArticlePage />}
-          />
+          <Route path="/articles/new" element={<NewArticlePage />} />
           <Route
             path="/producers/name/:name"
             element={<ProducerDetailsPage />}
@@ -58,10 +60,16 @@ const App = () => {
             path="/producers/edit/:name"
             element={<ProducerUpdatePage />}
           />
+          <Route path="/producers/new" element={<NewProducerPage />} />
           <Route
-            path="/producers/new"
-            element={<NewProducerPage />}
+            path="/categories/categoryName/:categoryName"
+            element={<CategoryDetailsPage />}
           />
+          <Route
+            path="/categories/edit/:categoryName"
+            element={<CategoryUpdatePage />}
+          />
+          <Route path="/categories/new" element={<NewCategoryPage />} />
           <Route
             path="/accessories/orderCode/:orderCode"
             element={<AccessoryDetailsPage />}
@@ -70,10 +78,7 @@ const App = () => {
             path="/accessories/edit/:orderCode"
             element={<UpdateAccessoryPage />}
           />
-          <Route
-            path="/accessories/new"
-            element={<NewAccessoryPage />}
-          />
+          <Route path="/accessories/new" element={<NewAccessoryPage />} />
           <Route
             path="/projects/projectCode/:projectCode"
             element={<ProjectDetailsPage />}
@@ -82,10 +87,7 @@ const App = () => {
             path="/projects/edit/:projectCode"
             element={<UpdateProjectPage />}
           />
-          <Route
-            path="/projects/new"
-            element={<NewProjectPage />}
-          />
+          <Route path="/projects/new" element={<NewProjectPage />} />
           <Route
             path="/orders/orderCode/:orderCode"
             element={<OrderDetailsPage />}

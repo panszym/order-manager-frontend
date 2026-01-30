@@ -10,7 +10,7 @@ export const getProducerByName = (name: string) => {
 };
 
 export const getProducerById = (producerId: string) => {
-  return apiProducer.get<Producer>(`/${producerId}`);
+  return apiProducer.get<Producer>(`/id/${producerId}`);
 };
 
 export const deleteProducer = (name: string) => {
