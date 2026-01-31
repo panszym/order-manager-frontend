@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import { AddConfirm } from "../../components/AddConfirm";
-import type { Category } from "../../model/CAtegoryModel";
+import type { Category } from "../../model/CategoryModel";
 import { addCategory } from "../../services/category-service";
 import { CategoryValidation } from "../../validation/CategoryValidation";
 

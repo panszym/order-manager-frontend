@@ -4,10 +4,9 @@ import { useFormik } from "formik";
 import type { Article } from "../../model/ArticleModel";
 import { addArticle } from "../../services/article-service";
 import { NewArticleValidation } from "../../validation/NewArticleValidation";
-import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
-import { ArticleCategoryConstant } from "../../Utils/ArticleCategoryConstant";
 import { AddConfirm } from "../../components/AddConfirm";
 import { ProducerChooseWrapper } from "./ProducerChooseWrapper";
+import { CategoryChooseWrapper } from "./CategoryChooseWrapper";
 
 export const NewArticle = () => {
   const navigate = useNavigate();
@@ -188,22 +187,8 @@ export const NewArticle = () => {
               onBlur={formik.handleBlur}
             />
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Kategoria:</p>
-            </div>
-            <div>
-              <ArticleCategoryChoose
-                options={ArticleCategoryConstant}
-                id="category"
-                name="category"
-                value={formik.values.category}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.category}
-                touched={formik.touched.category}
-              />
-            </div>
+          <div className="mb-3">
+            <CategoryChooseWrapper formik={formik} />
           </div>
 
           <div className="container d-flex align-items-center  justify-content-center">

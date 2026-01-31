@@ -9,10 +9,9 @@ import {
   updateArticle,
 } from "../../services/article-service";
 import { ArticleUpdateValidation } from "../../validation/ArticleUpdateValidation";
-import { ArticleCategoryConstant } from "../../Utils/ArticleCategoryConstant";
-import { ArticleCategoryChoose } from "./ArticleCategoryChoose";
 import { UpdateConfirm } from "./UpdateConfirm";
 import { ProducerChooseWrapper } from "./ProducerChooseWrapper";
+import { CategoryChooseWrapper } from "./CategoryChooseWrapper";
 
 export const ArticleUpdate = () => {
   const navigate = useNavigate();
@@ -211,22 +210,8 @@ export const ArticleUpdate = () => {
           <div className="mb-3">
             <ProducerChooseWrapper formik={formik} />
           </div>
-          <div className="d-flex justify-content-center align-items-center mt-1">
-            <div className="mx-3">
-              <p>Kategoria:</p>
-            </div>
-            <div>
-              <ArticleCategoryChoose
-                options={ArticleCategoryConstant}
-                id="category"
-                name="category"
-                value={formik.values.category}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                error={formik.errors.category}
-                touched={formik.touched.category}
-              />
-            </div>
+          <div className="mb-3">
+            <CategoryChooseWrapper formik={formik} />
           </div>
           <div className="container d-flex align-items-center  justify-content-center">
             <button

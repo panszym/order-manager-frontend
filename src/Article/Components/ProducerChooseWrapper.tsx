@@ -4,7 +4,7 @@ import { ProducerChoose } from "./ProducerChoose";
 
 
 interface Props {
-  formik: any; // lub dokładnie typ Formik
+  formik: any; 
 }
 
 export const ProducerChooseWrapper = ({ formik }: Props) => {
