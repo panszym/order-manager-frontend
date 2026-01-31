@@ -10,7 +10,7 @@ export const getProducerByName = (name: string) => {
 };
 
 export const getProducerById = (producerId: string) => {
-  return apiProducer.get<Producer>(`/id/${producerId}`);
+  return apiProducer.get<Producer>(`id/${producerId}`);
 };
 
 export const deleteProducer = (name: string) => {
@@ -18,7 +18,7 @@ export const deleteProducer = (name: string) => {
 };
 
 export const updateProducer = (name: string, producer: Producer) => {
-  return apiProducer.patch<Producer>(`/name/${name}`, producer);
+  return apiProducer.patch<Producer>(`name/${name}`, producer);
 };
 
 export const addProducer = (producer: Producer) => {

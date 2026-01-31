@@ -28,6 +28,10 @@ import { CategoryPage } from "./Category/CAtegoryPage";
 import { CategoryDetailsPage } from "./Category/CategoryDetailsPage";
 import { CategoryUpdatePage } from "./Category/CategoryUpdatePage";
 import { NewCategoryPage } from "./Category/NewCategoryPage";
+import { ClientPage } from "./Client/ClientPage";
+import { ClientDetailsPage } from "./Client/clientDetailsPage";
+import { ClientUpdatePage } from "./Client/ClientUpdatePage";
+import { NewClientPage } from "./Client/NewClientPage";
 
 Dashboard;
 const App = () => {
@@ -43,6 +47,7 @@ const App = () => {
           <Route path="/users" element={<UserPage />} />
           <Route path="/producers" element={<ProducerPage />} />
           <Route path="/categories" element={<CategoryPage />} />
+          <Route path="/clients" element={<ClientPage />} />
           <Route
             path="/articles/orderCode/:orderCode"
             element={<ArticleDetailsPage />}
@@ -70,6 +75,15 @@ const App = () => {
             element={<CategoryUpdatePage />}
           />
           <Route path="/categories/new" element={<NewCategoryPage />} />
+          <Route
+            path="/clients/code/:code"
+            element={<ClientDetailsPage />}
+          />
+          <Route
+            path="/clients/edit/:code"
+            element={<ClientUpdatePage />}
+          />
+          <Route path="/clients/new" element={<NewClientPage />} />
           <Route
             path="/accessories/orderCode/:orderCode"
             element={<AccessoryDetailsPage />}

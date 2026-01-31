@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import type { Category } from "../model/CAtegoryModel";
+import type { Category } from "../model/CategoryModel";
 import { getCategoryByCategoryName } from "../services/category-service";
 
 export const useCategoryDetails = () => {

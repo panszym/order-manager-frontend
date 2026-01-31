@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { getCategory } from "../services/category-service";
-import type { Category } from "../model/CAtegoryModel";
+import type { Category } from "../model/CategoryModel";
 
 
 const useCategory = () => {
