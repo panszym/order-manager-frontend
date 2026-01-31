@@ -5,6 +5,7 @@ import { AddConfirm } from "../../components/AddConfirm";
 import type { Project } from "../../model/ProjectModel";
 import { NewProjectValidation } from "../../validation/NewProjectValidation";
 import { addProject } from "../../services/project-service";
+import { ClientChooseWrapper } from "./ClientChooseWrapper";
 
 export const NewProject = () => {
   const navigate = useNavigate();
@@ -89,18 +90,7 @@ export const NewProject = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="client" className="form-label">
-              Klient
-            </label>
-            <input
-              type="text"
-              id="client"
-              name="client"
-              className="form-control border"
-              value={formik.values.client}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+            <ClientChooseWrapper formik={formik} />
           </div>
           <div className="container d-flex align-items-center  justify-content-center">
             <button

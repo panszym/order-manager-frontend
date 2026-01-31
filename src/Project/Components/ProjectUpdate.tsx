@@ -10,6 +10,7 @@ import {
 } from "../../services/project-service";
 import { ProjectUpdateValidation } from "../../validation/ProjectUpdateValidation";
 import { UpdateConfirm } from "../../Article/Components/UpdateConfirm";
+import { ClientChooseWrapper } from "./ClientChooseWrapper";
 
 export const ProjectUpdate = () => {
   const navigate = useNavigate();
@@ -109,18 +110,7 @@ export const ProjectUpdate = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="client" className="form-label">
-              Opis
-            </label>
-            <input
-              type="text"
-              id="client"
-              name="client"
-              className="form-control border"
-              value={formik.values.client}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
+            <ClientChooseWrapper formik={formik} />
           </div>
           <div className="container d-flex align-items-center  justify-content-center">
             <button
