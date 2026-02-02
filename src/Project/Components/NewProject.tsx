@@ -87,6 +87,11 @@ export const NewProject = () => {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
             />
+            {formik.touched.purchaser && formik.errors.purchaser ? (
+              <div className="text-danger fst-italic">
+                {formik.errors.purchaser}
+              </div>
+            ) : null}
           </div>
 
           <div className="mb-3">

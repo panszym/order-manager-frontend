@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Components.css";
 
 import { useState } from "react";
@@ -6,11 +6,10 @@ import { deleteArticle } from "../../services/article-service";
 import { useArticleDetail } from "../../hooks/useArticleDetail";
 import { DeleteConfirm } from "../../components/DeleteConfirm";
 
-
 export const ArticleDetails = () => {
-  const navigate = useNavigate();
   const { orderCode } = useParams<{ orderCode: string }>();
-  const { article, errors, isLoading, setLoader, setErrors } = useArticleDetail();
+  const { article, errors, isLoading, setLoader, setErrors } =
+    useArticleDetail();
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
   const handleCancel = () => {
@@ -20,10 +19,8 @@ export const ArticleDetails = () => {
   const handleConfirm = () => {
     setLoader(true);
     deleteArticle(orderCode!)
-      .then((res) => {
-        if (res) {
-          navigate("/articles");
-        }
+      .then(() => {
+        window.location.reload();
       })
       .catch((error) => setErrors(error.response.data.messageor))
       .finally(() => {
@@ -60,38 +57,51 @@ export const ArticleDetails = () => {
                 </tr>
                 <tr>
                   <th>Producent:</th>
-                  <td>{article?.producer?  article.producer : "N/A"}</td>
+                  <td>{article?.producer ? article.producer : "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Kategoria:</th>
-                  <td>{article?.category? article.category : "N/A"}</td>
+                  <td>{article?.category ? article.category : "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Opis:</th>
-                  <td>{article?.description? article.description : "N/A"}</td>
+                  <td>{article?.description ? article.description : "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Prąd nominalny:</th>
-                  <td>{article?.nominalCurrent? article.nominalCurrent : "N/A"}</td>
+                  <td>
+                    {article?.nominalCurrent ? article.nominalCurrent : "N/A"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Nominalne napięcie:</th>
-                  <td>{article?.nominalVoltage? article.nominalVoltage : "N/A"}</td>
+                  <td>
+                    {article?.nominalVoltage ? article.nominalVoltage : "N/A"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Wysokość:</th>
-                  <td>{article?.height? `${article.height} mm `: "N/A"}</td>
+                  <td>{article?.height ? `${article.height} mm ` : "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Szerokość:</th>
-                  <td>{article?.width? `${article.width} mm `: "N/A"}</td>
+                  <td>{article?.width ? `${article.width} mm ` : "N/A"}</td>
                 </tr>
                 <tr>
                   <th>Wysokość:</th>
-                  <td>{article?.depth? `${article.depth} mm `: "N/A"}</td>
+                  <td>{article?.depth ? `${article.depth} mm ` : "N/A"}</td>
                 </tr>
               </tbody>
             </table>
+            <div className="container d-flex justify-content-center align-items-center py-2 mt-1">
+              <Link
+                to={`/articlesAccessories/${article?.orderCode}`}
+                type="button"
+                className="btn btn-sm btn-secondary mx-2"
+              >
+                Lista akcesoriów
+              </Link>
+            </div>
           </div>
         </div>
       </div>

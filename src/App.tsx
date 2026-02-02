@@ -24,14 +24,15 @@ import { ProducerDetailsPage } from "./Producer/ProducerDetailsPage";
 import { NewProducerPage } from "./Producer/NewProducerPage";
 import { ProducerUpdatePage } from "./Producer/ProducerUpdatePage";
 import { ProducerPage } from "./Producer/ProducerPage";
-import { CategoryPage } from "./Category/CAtegoryPage";
+import { CategoryPage } from "./Category/CategoryPage";
 import { CategoryDetailsPage } from "./Category/CategoryDetailsPage";
 import { CategoryUpdatePage } from "./Category/CategoryUpdatePage";
 import { NewCategoryPage } from "./Category/NewCategoryPage";
 import { ClientPage } from "./Client/ClientPage";
-import { ClientDetailsPage } from "./Client/clientDetailsPage";
 import { ClientUpdatePage } from "./Client/ClientUpdatePage";
 import { NewClientPage } from "./Client/NewClientPage";
+import { ClientDetailsPage } from "./Client/ClientDetailsPage";
+import { ArticleAccessoriesPage } from "./Article/ArticleAccessoriesPage";
 
 Dashboard;
 const App = () => {
@@ -57,6 +58,7 @@ const App = () => {
             element={<UpdateArticlePage />}
           />
           <Route path="/articles/new" element={<NewArticlePage />} />
+          <Route path="/articlesAccessories/:orderCode" element={<ArticleAccessoriesPage />} />
           <Route
             path="/producers/name/:name"
             element={<ProducerDetailsPage />}

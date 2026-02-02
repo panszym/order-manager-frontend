@@ -90,13 +90,24 @@ export const AccessoryDetails = () => {
         </div>
       </div>
       <div className="container d-flex align-items-center  justify-content-center mb-2">
-        <Link
-          to="/accessories"
-          type="button"
-          className="btn btn-sm btn-secondary mx-2"
-        >
-          Wróć do listy
-        </Link>
+        <div>
+          <Link
+            to="/accessories"
+            type="button"
+            className="btn btn-sm btn-secondary mx-2"
+          >
+            Wróć do listy akcesoriów
+          </Link>
+          <Link
+            to="/articles"
+            type="button"
+            className="btn btn-sm btn-secondary mx-2"
+          >
+            Wróć do listy artykułów
+          </Link>
+        </div>
+      </div>
+      <div className="container d-flex align-items-center  justify-content-center mb-2">
         <Link
           to={`/accessories/edit/${accessory?.orderCode}`}
           className="btn btn-sm btn-primary"
