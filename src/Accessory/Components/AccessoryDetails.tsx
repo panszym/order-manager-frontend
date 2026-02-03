@@ -72,7 +72,7 @@ export const AccessoryDetails = () => {
                   <th>Prąd nominalny:</th>
                   <td>
                     {accessory?.nominalCurrent
-                      ? accessory.nominalCurrent
+                      ? `${accessory.nominalCurrent} A`
                       : "N/A"}
                   </td>
                 </tr>

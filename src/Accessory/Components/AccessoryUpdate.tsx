@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import type { Accessory } from "../../model/AccessoryModel";
 import {
@@ -127,7 +127,7 @@ export const AccessoryUpdate = () => {
 
           <div className="mb-3">
             <label htmlFor="nominalCurrent" className="form-label">
-              Prąd nominalny
+              Prąd nominalny [A]
             </label>
             <input
               type="number"
@@ -159,9 +159,16 @@ export const AccessoryUpdate = () => {
             <ProducerChooseWrapper formik={formik} />
           </div>
 
-          <div className="container d-flex align-items-center  justify-content-center">
+          <div className="d-flex align-items-center justify-content-center gap-5 mb-3">
+            <Link
+              to={`/accessories/orderCode/${orderCode}`}
+              className="btn btn-primary btn-sm"
+            >
+              Wróć do produktu
+            </Link>
+
             <button
-              className="btn btn-sm btn-primary mb-2"
+              className="btn btn-success btn-sm"
               type="button"
               onClick={() => setShowDialog(true)}
             >

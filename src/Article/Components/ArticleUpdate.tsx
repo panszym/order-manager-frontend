@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { useFormik } from "formik";
 
@@ -134,7 +134,7 @@ export const ArticleUpdate = () => {
 
           <div className="mb-3">
             <label htmlFor="nominalCurrent" className="form-label">
-              Prąd nominalny
+              Prąd nominalny [A]
             </label>
             <input
               type="number"
@@ -164,7 +164,7 @@ export const ArticleUpdate = () => {
 
           <div className="mb-3">
             <label htmlFor="height" className="form-label">
-              Wysokość
+              Wysokość [mm]
             </label>
             <input
               type="number"
@@ -179,7 +179,7 @@ export const ArticleUpdate = () => {
 
           <div className="mb-3">
             <label htmlFor="width" className="form-label">
-              Szerokość
+              Szerokość [mm]
             </label>
             <input
               type="number"
@@ -194,7 +194,7 @@ export const ArticleUpdate = () => {
 
           <div className="mb-3">
             <label htmlFor="depth" className="form-label">
-              Głębokość
+              Głębokość [mm]
             </label>
             <input
               type="number"
@@ -213,9 +213,16 @@ export const ArticleUpdate = () => {
           <div className="mb-3">
             <CategoryChooseWrapper formik={formik} />
           </div>
-          <div className="container d-flex align-items-center  justify-content-center">
+          <div className="d-flex align-items-center justify-content-center gap-5 mb-3">
+            <Link
+              to={`/articles/orderCode/${orderCode}`}
+              className="btn btn-primary btn-sm"
+            >
+              Wróć do artykułu
+            </Link>
+
             <button
-              className="btn btn-sm btn-primary mb-2"
+              className="btn btn-success btn-sm"
               type="button"
               onClick={() => setShowDialog(true)}
             >

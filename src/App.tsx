@@ -1,5 +1,5 @@
 import Dashboard from "./pages/dashboard/Dashboard";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { HomePage } from "./pages/dashboard/HomePage";
 import { ArticlePage } from "./Article/ArticlePage";
 import { OrderPage } from "./Order/OrderPage";
@@ -33,6 +33,7 @@ import { ClientUpdatePage } from "./Client/ClientUpdatePage";
 import { NewClientPage } from "./Client/NewClientPage";
 import { ClientDetailsPage } from "./Client/ClientDetailsPage";
 import { ArticleAccessoriesPage } from "./Article/ArticleAccessoriesPage";
+import { ArticleAccessoriesAddPage } from "./Article/articleAssceesoryAddPage";
 
 Dashboard;
 const App = () => {
@@ -59,6 +60,7 @@ const App = () => {
           />
           <Route path="/articles/new" element={<NewArticlePage />} />
           <Route path="/articlesAccessories/:orderCode" element={<ArticleAccessoriesPage />} />
+          <Route path="/articlesAccessoriesAdd/:orderCode" element={<ArticleAccessoriesAddPage />} />
           <Route
             path="/producers/name/:name"
             element={<ProducerDetailsPage />}

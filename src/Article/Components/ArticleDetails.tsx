@@ -70,13 +70,13 @@ export const ArticleDetails = () => {
                 <tr>
                   <th>Prąd nominalny:</th>
                   <td>
-                    {article?.nominalCurrent ? article.nominalCurrent : "N/A"}
+                    {article?.nominalCurrent ? `${article.nominalCurrent} A` : "N/A"}
                   </td>
                 </tr>
                 <tr>
                   <th>Nominalne napięcie:</th>
                   <td>
-                    {article?.nominalVoltage ? article.nominalVoltage : "N/A"}
+                    {article?.nominalVoltage ? article.nominalVoltage  : "N/A"}
                   </td>
                 </tr>
                 <tr>
@@ -100,6 +100,13 @@ export const ArticleDetails = () => {
                 className="btn btn-sm btn-secondary mx-2"
               >
                 Lista akcesoriów
+              </Link>
+              <Link
+                to={`/articlesAccessoriesAdd/${article?.orderCode}`}
+                type="button"
+                className="btn btn-sm btn-secondary mx-2"
+              >
+                Dodaj akcesoria
               </Link>
             </div>
           </div>

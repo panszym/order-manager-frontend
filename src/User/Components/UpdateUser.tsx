@@ -49,9 +49,8 @@ export const UserUpdate = () => {
               navigate(`/users`);
             }
           })
-          .catch((error) => {
-            setErrors(error.message);
-          });
+          .catch((error) => setErrors(error.response.data.message))
+          .finally(() => setLoader(false));
     },
     validationSchema: UserUpdateValidation,
   });
