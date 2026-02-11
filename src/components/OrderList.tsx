@@ -32,7 +32,7 @@ export const OrderList: React.FC<{ orders: Order[] }> = (props) => {
               </div>
               <div className="col-md-4 d-flex align-items-center">
                 <div className="d-flex align-items-center ms-auto">
-                  <span className="me-2">Kategoria:</span>
+                  <span className="me-2">Data zamówienia:</span>
                   <span className="badge rounded-pill app-primary-bg-color">
                     {order.dateTime.toString()}
                   </span>

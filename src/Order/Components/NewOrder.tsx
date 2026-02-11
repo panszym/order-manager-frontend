@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useFormik } from "formik";
 import { AddConfirm } from "../../components/AddConfirm";
 import type { Order } from "../../model/OrderModel";
@@ -7,9 +7,11 @@ import { addOrder } from "../../services/order-service";
 import { NewOrderValidation } from "../../validation/NewOrderValidation";
 import { StatusChoose } from "./StatusChoose";
 import { OrderStatusConstant } from "../../Utils/OrderStatusConstant";
+import { addProjectOrder } from "../../services/project-service";
 
 export const NewOrder = () => {
   const navigate = useNavigate();
+  const { projectCode } = useParams<{ projectCode: string }>();
 
   const [showDialog, setShowDialog] = useState<boolean>(false);
 
@@ -25,17 +27,24 @@ export const NewOrder = () => {
   const formik = useFormik({
     enableReinitialize: true,
     initialValues,
-    onSubmit: (values: Order) => {
-      addOrder(values)
-        .then((response) => {
-          if (response && response.status === 200) {
-            navigate(`/orders`);
-          }
-        })
-        .catch((error) => {
-          setErrors(error.response?.data?.message || "Błąd sieci");
-        });
-    },
+    onSubmit: async (values: Order) => {
+  try {
+    const response = await addOrder(values);
+
+    if (response && response.status === 200) {
+      const createdOrder = response.data;
+
+      if (projectCode) {
+        await addProjectOrder(projectCode, createdOrder.orderCode);
+        navigate(`/projects/orders/${projectCode}`);
+      } else {
+        navigate(`/projects`);
+      }
+    }
+  } catch (error: any) {
+    setErrors(error.response?.data?.message || "Błąd sieci");
+  }
+},
     validationSchema: NewOrderValidation,
   });
 

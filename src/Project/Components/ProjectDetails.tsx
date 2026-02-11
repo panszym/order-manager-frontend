@@ -38,7 +38,7 @@ export const ProjectDetails = () => {
         {errors && <p className="text-danger">{errors}</p>}
       </div>
       <div className="container d-flex justify-content-center align-items-center py-2 mt-1">
-        <h1>Dane artykuły</h1>
+        <h1>Dane projektu</h1>
       </div>
 
       <div
@@ -65,6 +65,15 @@ export const ProjectDetails = () => {
             </table>
           </div>
         </div>
+      </div>
+      <div className="container d-flex align-items-center  justify-content-center mb-2">
+        <Link
+          to={`/projects/orders/${project?.projectCode}`}
+          type="button"
+          className="btn btn-sm btn-secondary mx-2"
+        >
+          Lista zamówień
+        </Link>
       </div>
       <div className="container d-flex align-items-center  justify-content-center mb-2">
         <Link

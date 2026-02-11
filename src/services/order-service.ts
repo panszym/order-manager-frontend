@@ -6,12 +6,12 @@ export const getOrders = () => {
 };
 
 export const getOrderByOrderCode = (orderCode: string) => {
-    return apiOrder.get<Order>(`orderCode/${orderCode}`);
-}
+  return apiOrder.get<Order>(`orderCode/${orderCode}`);
+};
 
 export const getOrderById = (orderId: string) => {
-    return apiOrder.get<Order>(`/${orderId}`);
-}
+  return apiOrder.get<Order>(`/${orderId}`);
+};
 
 export const deleteOrder = (orderCode: string) => {
   return apiOrder.delete(`orderCode/${orderCode}`);

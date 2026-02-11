@@ -8,6 +8,7 @@ import { AddConfirm } from "../../components/AddConfirm";
 const ArticleAccessoriesAdd = () => {
   const { orderCode } = useParams<{ orderCode: string }>();
   const { accessory, error, isLoading } = useAccessory();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const [accessories, setAccessories] = useState(accessory);
   const [accessoryToAdd, setAccessoryToAdd] = useState<string | null>(null);
@@ -29,11 +30,15 @@ const ArticleAccessoriesAdd = () => {
 
     addArticleAccessory(orderCode, accessoryToAdd)
       .then(() => {
-        setAccessories(prev =>
-          prev.filter(a => a.orderCode !== accessoryToAdd)
+        setAccessories((prev) =>
+          prev.filter((a) => a.orderCode !== accessoryToAdd),
         );
       })
-      .catch(err => console.error(err))
+      .catch((err) => {
+      const message =
+        err.response?.data?.message
+      setErrorMessage(message);
+    })
       .finally(() => setAccessoryToAdd(null));
   };
 
@@ -54,12 +59,12 @@ const ArticleAccessoriesAdd = () => {
       </div>
 
       {isLoading && <p>Ładowanie...</p>}
-      {error && <p className="text-danger">{error}</p>}
+      {errorMessage && <p className="text-danger">{errorMessage}</p>}
 
       <ArticleAccessoriesAddList
         accessories={accessories}
         onAdd={handleAddClick}
-        isAdding={!!accessoryToAdd} 
+        isAdding={!!accessoryToAdd}
       />
       <AddConfirm
         message="Czy chcesz dodać dany produkt do listy akcesoriów?"

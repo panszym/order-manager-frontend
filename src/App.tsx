@@ -33,7 +33,8 @@ import { ClientUpdatePage } from "./Client/ClientUpdatePage";
 import { NewClientPage } from "./Client/NewClientPage";
 import { ClientDetailsPage } from "./Client/ClientDetailsPage";
 import { ArticleAccessoriesPage } from "./Article/ArticleAccessoriesPage";
-import { ArticleAccessoriesAddPage } from "./Article/articleAssceesoryAddPage";
+import { ArticleAccessoriesAddPage } from "./Article/ArticleAssceesoryAddPage";
+import { ProjectOrdersPage } from "./Project/ProjectOrdersPage";
 
 Dashboard;
 const App = () => {
@@ -106,12 +107,13 @@ const App = () => {
             element={<UpdateProjectPage />}
           />
           <Route path="/projects/new" element={<NewProjectPage />} />
+          <Route path="/projects/orders/:projectCode" element={<ProjectOrdersPage />} />
           <Route
             path="/orders/orderCode/:orderCode"
             element={<OrderDetailsPage />}
           />
           <Route path="/orders/edit/:orderCode" element={<OrderUpdatePage />} />
-          <Route path="/orders/new" element={<NewOrderPage />} />
+          <Route path="/orders/new/:projectCode" element={<NewOrderPage />} />
           <Route path="/users/login/:login" element={<UserDetailsPage />} />
           <Route path="/users/edit/:login" element={<UpdateUserPage />} />
         </Routes>

@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Components.css";
 
 import { useState } from "react";
@@ -7,6 +7,7 @@ import { useArticleDetail } from "../../hooks/useArticleDetail";
 import { DeleteConfirm } from "../../components/DeleteConfirm";
 
 export const ArticleDetails = () => {
+  const navigate = useNavigate();
   const { orderCode } = useParams<{ orderCode: string }>();
   const { article, errors, isLoading, setLoader, setErrors } =
     useArticleDetail();
@@ -20,7 +21,7 @@ export const ArticleDetails = () => {
     setLoader(true);
     deleteArticle(orderCode!)
       .then(() => {
-        window.location.reload();
+        navigate("/articles");
       })
       .catch((error) => setErrors(error.response.data.messageor))
       .finally(() => {
