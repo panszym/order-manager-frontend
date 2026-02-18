@@ -60,8 +60,14 @@ const App = () => {
             element={<UpdateArticlePage />}
           />
           <Route path="/articles/new" element={<NewArticlePage />} />
-          <Route path="/articlesAccessories/:orderCode" element={<ArticleAccessoriesPage />} />
-          <Route path="/articlesAccessoriesAdd/:orderCode" element={<ArticleAccessoriesAddPage />} />
+          <Route
+            path="/articlesAccessories/:orderCode"
+            element={<ArticleAccessoriesPage />}
+          />
+          <Route
+            path="/articlesAccessoriesAdd/:orderCode"
+            element={<ArticleAccessoriesAddPage />}
+          />
           <Route
             path="/producers/name/:name"
             element={<ProducerDetailsPage />}
@@ -80,14 +86,8 @@ const App = () => {
             element={<CategoryUpdatePage />}
           />
           <Route path="/categories/new" element={<NewCategoryPage />} />
-          <Route
-            path="/clients/code/:code"
-            element={<ClientDetailsPage />}
-          />
-          <Route
-            path="/clients/edit/:code"
-            element={<ClientUpdatePage />}
-          />
+          <Route path="/clients/code/:code" element={<ClientDetailsPage />} />
+          <Route path="/clients/edit/:code" element={<ClientUpdatePage />} />
           <Route path="/clients/new" element={<NewClientPage />} />
           <Route
             path="/accessories/orderCode/:orderCode"
@@ -107,7 +107,10 @@ const App = () => {
             element={<UpdateProjectPage />}
           />
           <Route path="/projects/new" element={<NewProjectPage />} />
-          <Route path="/projects/orders/:projectCode" element={<ProjectOrdersPage />} />
+          <Route
+            path="/projects/orders/:projectCode"
+            element={<ProjectOrdersPage />}
+          />
           <Route
             path="/orders/orderCode/:orderCode"
             element={<OrderDetailsPage />}

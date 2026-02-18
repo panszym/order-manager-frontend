@@ -14,10 +14,10 @@ const ProjectOrders = () => {
   const [orderToDelete, setOrderToDelete] = useState<string | null>(null);
 
   useEffect(() => {
-  if (order) {
-    setOrders(order);
-  }
-}, [order]);
+    if (order) {
+      setOrders(order);
+    }
+  }, [order]);
 
   const handleRemoveClick = (orderOrderCode: string) => {
     setOrderToDelete(orderOrderCode);
@@ -32,11 +32,9 @@ const ProjectOrders = () => {
 
     deleteProjectOrder(projectCode, orderToDelete)
       .then(() => {
-        setOrders(prev =>
-          prev.filter(a => a.orderCode !== orderToDelete)
-        );
+        setOrders((prev) => prev.filter((a) => a.orderCode !== orderToDelete));
       })
-      .catch(err => console.error(err))
+      .catch((err) => console.error(err))
       .finally(() => setOrderToDelete(null));
   };
 
@@ -66,10 +64,7 @@ const ProjectOrders = () => {
       {isLoading && <p>Ładowanie...</p>}
       {error && <p className="text-danger">{error}</p>}
 
-      <ProjectOrdersList
-        orders={orders}
-        onRemove={handleRemoveClick} 
-      />
+      <ProjectOrdersList orders={orders} onRemove={handleRemoveClick} />
       <DeleteConfirm
         message="Czy chcesz usunąć dane zamówienie z tego projektu?"
         show={!!orderToDelete}

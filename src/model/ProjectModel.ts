@@ -3,4 +3,6 @@ export interface Project {
   projectCode: string;
   purchaser: string;
   client: string;
+  owner: string;
+  description: string;
 }

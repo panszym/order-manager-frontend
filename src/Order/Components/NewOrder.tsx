@@ -28,23 +28,23 @@ export const NewOrder = () => {
     enableReinitialize: true,
     initialValues,
     onSubmit: async (values: Order) => {
-  try {
-    const response = await addOrder(values);
+      try {
+        const response = await addOrder(values);
 
-    if (response && response.status === 200) {
-      const createdOrder = response.data;
+        if (response && response.status === 200) {
+          const createdOrder = response.data;
 
-      if (projectCode) {
-        await addProjectOrder(projectCode, createdOrder.orderCode);
-        navigate(`/projects/orders/${projectCode}`);
-      } else {
-        navigate(`/projects`);
+          if (projectCode) {
+            await addProjectOrder(projectCode, createdOrder.orderCode);
+            navigate(`/projects/orders/${projectCode}`);
+          } else {
+            navigate(`/projects`);
+          }
+        }
+      } catch (error: any) {
+        setErrors(error.response?.data?.message || "Błąd sieci");
       }
-    }
-  } catch (error: any) {
-    setErrors(error.response?.data?.message || "Błąd sieci");
-  }
-},
+    },
     validationSchema: NewOrderValidation,
   });
 

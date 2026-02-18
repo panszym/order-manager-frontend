@@ -61,6 +61,14 @@ export const ProjectDetails = () => {
                   <th>Klient:</th>
                   <td>{project ? project.client : "N/A"}</td>
                 </tr>
+                <tr>
+                  <th>Osoba odpowiedzialna:</th>
+                  <td>{project ? project.owner : "N/A"}</td>
+                </tr>
+                <tr>
+                  <th>Opis:</th>
+                  <td>{project ? project.description : "N/A"}</td>
+                </tr>
               </tbody>
             </table>
           </div>

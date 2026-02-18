@@ -11,6 +11,7 @@ import {
 import { ProjectUpdateValidation } from "../../validation/ProjectUpdateValidation";
 import { UpdateConfirm } from "../../Article/Components/UpdateConfirm";
 import { ClientChooseWrapper } from "./ClientChooseWrapper";
+import { OwnerChooseWrapper } from "./OwnerChooseWraper";
 
 export const ProjectUpdate = () => {
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ export const ProjectUpdate = () => {
     projectCode: "",
     purchaser: "",
     client: "",
+    owner: "",
+    description: " ",
   });
 
   useEffect(() => {
@@ -109,6 +112,23 @@ export const ProjectUpdate = () => {
             />
           </div>
 
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Opis
+            </label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              className="form-control border"
+              value={formik.values.description}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+          </div>
+          <div className="mb-3">
+            <OwnerChooseWrapper formik={formik} />
+          </div>
           <div className="mb-3">
             <ClientChooseWrapper formik={formik} />
           </div>

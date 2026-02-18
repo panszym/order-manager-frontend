@@ -26,7 +26,9 @@ export const ProjectList: React.FC<{ projects: Project[] }> = (props) => {
             <div className="col-md-6">
               <div className="card-body">
                 <h4 className="card-title">{project.projectCode}</h4>
-                <h6>{project.purchaser}</h6>
+                <h6>Zamawiający: {project.purchaser}</h6>
+                <h6>Osoba odpowiedzialna: {project.owner}</h6>
+                <h6>Opis: {project.description}</h6>
               </div>
             </div>
           </div>

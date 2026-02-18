@@ -6,6 +6,7 @@ import type { Project } from "../../model/ProjectModel";
 import { NewProjectValidation } from "../../validation/NewProjectValidation";
 import { addProject } from "../../services/project-service";
 import { ClientChooseWrapper } from "./ClientChooseWrapper";
+import { OwnerChooseWrapper } from "./OwnerChooseWraper";
 
 export const NewProject = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ export const NewProject = () => {
     projectCode: "",
     purchaser: "",
     client: "",
+    description:"",
+    owner: ""
   });
 
   const formik = useFormik({
@@ -92,6 +95,30 @@ export const NewProject = () => {
                 {formik.errors.purchaser}
               </div>
             ) : null}
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="description" className="form-label">
+              Opis
+            </label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              className="form-control border"
+              value={formik.values.description}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+            />
+            {formik.touched.purchaser && formik.errors.purchaser ? (
+              <div className="text-danger fst-italic">
+                {formik.errors.purchaser}
+              </div>
+            ) : null}
+          </div>
+
+          <div className="mb-3">
+            <OwnerChooseWrapper formik={formik} />
           </div>
 
           <div className="mb-3">

@@ -6,10 +6,7 @@ type Props = {
   onRemove: (orderOrderCode: string) => void;
 };
 
-export const ProjectOrdersList: React.FC<Props> = ({
-  orders,
-  onRemove,
-}) => {
+export const ProjectOrdersList: React.FC<Props> = ({ orders, onRemove }) => {
   return (
     <>
       {orders.map((order) => (

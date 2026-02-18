@@ -35,10 +35,9 @@ const ArticleAccessoriesAdd = () => {
         );
       })
       .catch((err) => {
-      const message =
-        err.response?.data?.message
-      setErrorMessage(message);
-    })
+        const message = err.response?.data?.message;
+        setErrorMessage(message);
+      })
       .finally(() => setAccessoryToAdd(null));
   };
 
