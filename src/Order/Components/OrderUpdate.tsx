@@ -123,7 +123,7 @@ export const OrderUpdate = () => {
 
           <div className="d-flex justify-content-center align-items-center mt-1">
             <div className="mx-3">
-              <p>Producent:</p>
+              <p>Status:</p>
             </div>
             <div>
               <OrderStatusChoose

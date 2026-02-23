@@ -73,6 +73,15 @@ export const OrderDetails = () => {
       </div>
       <div className="container d-flex align-items-center  justify-content-center mb-2">
         <Link
+          to={`/orders/${order?.orderCode}/addProduct`}
+          type="button"
+          className="btn btn-sm btn-secondary mx-2"
+        >
+          Dodaj artykuł do listy zamówień
+        </Link>
+      </div>
+      <div className="container d-flex align-items-center  justify-content-center mb-2">
+        <Link
           to="/orders"
           type="button"
           className="btn btn-sm btn-secondary mx-2"

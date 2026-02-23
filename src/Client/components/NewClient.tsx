@@ -114,7 +114,7 @@ export const NewClient = () => {
               Kod pocztowy
             </label>
             <input
-              type="number"
+              type="text"
               id="postalCode"
               name="postalCode"
               className="form-control border"
