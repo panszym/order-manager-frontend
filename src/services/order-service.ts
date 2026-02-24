@@ -1,4 +1,5 @@
 import apiOrder from "../config/ApiOrder";
+import type { OrderItem } from "../model/OrderItem";
 import type { Order } from "../model/OrderModel";
 
 export const getOrders = () => {
@@ -23,4 +24,8 @@ export const updateOrder = (orderCode: string, order: Order) => {
 
 export const addOrder = (order: Order) => {
   return apiOrder.post<Order>(``, order);
+};
+
+export const getOrderItems = (orderCode: string) => {
+  return apiOrder.get<[OrderItem]>(`/orderItems/orderCode/${orderCode}`);
 };

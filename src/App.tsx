@@ -36,6 +36,7 @@ import { ArticleAccessoriesPage } from "./Article/ArticleAccessoriesPage";
 import { ArticleAccessoriesAddPage } from "./Article/ArticleAssceesoryAddPage";
 import { ProjectOrdersPage } from "./Project/ProjectOrdersPage";
 import { OrderAddProductPage } from "./Order/OrderAddProductPage";
+import { OrderItemsAllPage } from "./Order/OrderItemsAllPage";
 
 Dashboard;
 const App = () => {
@@ -119,6 +120,7 @@ const App = () => {
           <Route path="/orders/edit/:orderCode" element={<OrderUpdatePage />} />
           <Route path="/orders/:orderCode/addProduct" element={<OrderAddProductPage />} />
           <Route path="/orders/new/:projectCode" element={<NewOrderPage />} />
+          <Route path="/orderItems/:orderCode" element={<OrderItemsAllPage />} />
           <Route path="/users/login/:login" element={<UserDetailsPage />} />
           <Route path="/users/edit/:login" element={<UpdateUserPage />} />
         </Routes>

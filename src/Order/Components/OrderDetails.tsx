@@ -6,7 +6,6 @@ import { useOrderDetails } from "../../hooks/useOrderDetails";
 import { deleteOrder } from "../../services/order-service";
 import DateTimeFormat from "../../Utils/DateTime";
 
-
 export const OrderDetails = () => {
   const navigate = useNavigate();
   const { orderCode } = useParams<{ orderCode: string }>();
@@ -60,11 +59,17 @@ export const OrderDetails = () => {
                 </tr>
                 <tr>
                   <th>Data zamówienia:</th>
-                  <td>{order? DateTimeFormat.formatDateString(order.dateTime.toString()) : "N/A"}</td>
+                  <td>
+                    {order
+                      ? DateTimeFormat.formatDateString(
+                          order.dateTime.toString(),
+                        )
+                      : "N/A"}
+                  </td>
                 </tr>
                 <tr>
                   <th>Status:</th>
-                  <td>{order? order.status : "N/A"}</td>
+                  <td>{order ? order.status : "N/A"}</td>
                 </tr>
               </tbody>
             </table>
@@ -78,6 +83,15 @@ export const OrderDetails = () => {
           className="btn btn-sm btn-secondary mx-2"
         >
           Dodaj artykuł do listy zamówień
+        </Link>
+      </div>
+      <div className="container d-flex align-items-center  justify-content-center mb-2">
+        <Link
+          to={`/orderItems/${order?.orderCode}`}
+          type="button"
+          className="btn btn-sm btn-secondary mx-2"
+        >
+          Przejdź do listy zamówieniowej
         </Link>
       </div>
       <div className="container d-flex align-items-center  justify-content-center mb-2">

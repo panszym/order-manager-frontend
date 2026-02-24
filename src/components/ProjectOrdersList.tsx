@@ -48,7 +48,7 @@ export const ProjectOrdersList: React.FC<Props> = ({ orders, onRemove }) => {
                   onRemove(order.orderCode);
                 }}
               >
-                Usuń z listy zamówień dla tego projektu
+                Usuń zamówienie
               </button>
             </div>
           </div>
