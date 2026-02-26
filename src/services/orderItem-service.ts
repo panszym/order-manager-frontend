@@ -14,3 +14,19 @@ export const addProductToOrder = (
     },
   );
 };
+
+export const updateQuantity = (id: number, quantity: number) => {
+  return apiOrderItems.patch<OrderItem[]>(`/id/${id}`, null, {
+    params: { quantity },
+  });
+};
+
+export const updateOrderedQuantity = (id: number, orderedQuantity: number) => {
+  return apiOrderItems.patch<OrderItem[]>(
+    `/orderedQuantity/id/${id}`,
+    null,
+    {
+      params: { orderedQuantity },
+    },
+  );
+};
