@@ -22,11 +22,11 @@ export const updateQuantity = (id: number, quantity: number) => {
 };
 
 export const updateOrderedQuantity = (id: number, orderedQuantity: number) => {
-  return apiOrderItems.patch<OrderItem[]>(
-    `/orderedQuantity/id/${id}`,
-    null,
-    {
-      params: { orderedQuantity },
-    },
-  );
+  return apiOrderItems.patch<OrderItem[]>(`/orderedQuantity/id/${id}`, null, {
+    params: { orderedQuantity },
+  });
+};
+
+export const updateOrderItemStatus = (id: number, itemStatus: string) => {
+  return apiOrderItems.patch(`/id/${id}/itemStatus/${itemStatus}`);
 };

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import type { OrderItem } from "../model/OrderItem";
-import axios from "axios";
 import { UpdateQuantityModal } from "./UpdateQuantityModal";
 import {
   updateOrderedQuantity,
+  updateOrderItemStatus,
   updateQuantity,
 } from "../services/orderItem-service";
+import { UpdateOrderItemStatusModal } from "./UpdateOrderItemStatusModal";
 
 interface Props {
   orderItems: OrderItem[];
@@ -18,6 +19,9 @@ export const OrderItemList: React.FC<Props> = ({ orderItems }) => {
   const [fieldToEdit, setFieldToEdit] = useState<
     "quantity" | "orderedQuantity" | null
   >(null);
+  const [showStatusModal, setShowStatusModal] = useState(false);
+  const [selectedStatusItem, setSelectedStatusItem] =
+    useState<OrderItem | null>(null);
 
   const handleOpenModal = (
     item: OrderItem,
@@ -34,20 +38,65 @@ export const OrderItemList: React.FC<Props> = ({ orderItems }) => {
   };
 
   const handleConfirm = async (newValue: number) => {
-    if (!selectedItem || !fieldToEdit) return;
+  if (!selectedItem || !fieldToEdit) return;
+
+  try {
+    if (fieldToEdit === "quantity") {
+      await updateQuantity(selectedItem.id, newValue);
+
+      setItems((prev) =>
+        prev.map((item) =>
+          item.id === selectedItem.id
+            ? { ...item, quantity: newValue }
+            : item
+        )
+      );
+    } else {
+      await updateOrderedQuantity(selectedItem.id, newValue);
+
+      setItems((prev) =>
+        prev.map((item) =>
+          item.id === selectedItem.id
+            ? { ...item, orderedQuantity: newValue }
+            : item
+        )
+      );
+    }
+
+    handleCloseModal();
+  } catch (error) {
+    console.error("Błąd aktualizacji:", error);
+  }
+};
+
+  const handleOpenStatusModal = (item: OrderItem) => {
+    setSelectedStatusItem(item);
+    setShowStatusModal(true);
+  };
+  const handleCloseStatusModal = () => {
+    setShowStatusModal(false);
+    setSelectedStatusItem(null);
+  };
+
+  const handleConfirmStatus = async (newStatus: string) => {
+    if (!selectedStatusItem) return;
 
     try {
-      if (fieldToEdit === "quantity") {
-        await updateQuantity(selectedItem.id, newValue);
-      } else {
-        await updateOrderedQuantity(selectedItem.id, newValue);
-      }
+      await updateOrderItemStatus(selectedStatusItem.id, newStatus);
+      setItems((prev) =>
+        prev.map((item) =>
+          item.id === selectedStatusItem.id
+            ? { ...item, itemStatus: newStatus }
+            : item,
+        ),
+      );
 
-      window.location.reload();
+      handleCloseStatusModal();
     } catch (error) {
-      console.error("Błąd aktualizacji:", error);
+      console.error("Błąd aktualizacji statusu:", error);
     }
   };
+
   return (
     <>
       <div className="table-responsive">
@@ -62,6 +111,7 @@ export const OrderItemList: React.FC<Props> = ({ orderItems }) => {
               <th>Ilość zamówiona</th>
               <th></th>
               <th>Status</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -89,6 +139,14 @@ export const OrderItemList: React.FC<Props> = ({ orderItems }) => {
                   </button>
                 </td>
                 <td>{item.itemStatus}</td>
+                <td>
+                  <button
+                    className="btn btn-sm btn-primary"
+                    onClick={() => handleOpenStatusModal(item)}
+                  >
+                    Zmień status
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
@@ -99,6 +157,12 @@ export const OrderItemList: React.FC<Props> = ({ orderItems }) => {
         currentQuantity={selectedItem?.orderedQuantity ?? 0}
         onConfirm={handleConfirm}
         onCancel={handleCloseModal}
+      />
+      <UpdateOrderItemStatusModal
+        show={showStatusModal}
+        currentStatus={selectedStatusItem?.itemStatus ?? ""}
+        onConfirm={handleConfirmStatus}
+        onCancel={handleCloseStatusModal}
       />
     </>
   );
